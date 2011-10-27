@@ -1,0 +1,31 @@
+<?xml version="1.0"?>
+<!DOCTYPE hibernate-mapping PUBLIC "-//Hibernate/Hibernate Mapping DTD 3.0//EN"
+"http://hibernate.sourceforge.net/hibernate-mapping-3.0.dtd">
+<!-- Generated 15/10/2011 12:11:13 PM by Hibernate Tools 3.4.0.CR1 -->
+<hibernate-mapping>
+    <class name="modelo.Partida" table="partida">
+        <id name="id" type="java.lang.String">
+            <column name="id" />
+            <generator class="assigned" />
+        </id>
+        <many-to-one name="jugador" class="modelo.Jugador" fetch="join">
+            <column name="jugador" />
+        </many-to-one>
+        <many-to-one name="dificultad" class="modelo.Dificultad" fetch="join">
+            <column name="dificultad" />
+        </many-to-one>
+        <property name="tiempo" type="int">
+            <column name="tiempo" />
+        </property>
+        <property name="combinacion_colores" type="java.lang.String">
+            <column name="combinacion_colores" />
+        </property>
+        <property name="numero_intentos" type="int">
+            <column name="numero_intentos" />
+        </property>
+        <property name="fecha" type="java.util.Date">
+            <column name="fecha" />
+        </property>
+        
+    </class>
+</hibernate-mapping>
