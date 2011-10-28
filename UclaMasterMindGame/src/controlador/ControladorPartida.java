@@ -268,6 +268,9 @@ public class ControladorPartida {
 				for (int i=0;i<this.checkboxes_paleta.size();i++){
 					this.checkboxes_paleta.get(i).setEnabled(false);
 				}
+				this.frmpartida.getCrtiempo().PararCronometro();
+				this.frmpartida.getPncombinacionrespuesta().setVisible(true);
+				this.frmpartida.getBtprobar().setEnabled(false);
 				if (this.frmpartida.getMensaje().showConfirmDialog(this.frmpartida, "Game Over. ¿Desea Jugar Nuevamente?", "MasterMind", this.frmpartida.getMensaje().YES_NO_OPTION)==this.frmpartida.getMensaje().YES_OPTION){
 					this.frmpartida.dispose();
 					new ControladorPartida(dificultad, jugador);
@@ -275,9 +278,6 @@ public class ControladorPartida {
 				else{
 					this.frmpartida.dispose();
 				}
-				this.frmpartida.getCrtiempo().PararCronometro();
-				this.frmpartida.getPncombinacionrespuesta().setVisible(true);
-				this.frmpartida.getBtprobar().setEnabled(false);
 			}
 		}
 	}
