@@ -31,7 +31,7 @@ public class ControladorLista implements ActionListener{
 		formulariolista.getTbjugadores().LimpiarTabla();
 		Base_DatosDAO conexion = new Base_DatosDAO();
 		Dificultad dificultad = (Dificultad)conexion.findByProperty(Dificultad.class, Restrictions.eq("nombre", this.formulariolista.getCmbdificultad().getSelectedItem())).get(0);
-		List<Partida> partidas = conexion.findBySQLQuery("select * from partida where dificultad='"+dificultad.getId()+"' order by tiempo DESC", "partidas", Partida.class);
+		List<Partida> partidas = conexion.findBySQLQuery("select * from partida where dificultad='"+dificultad.getId()+"' order by tiempo ASC", "partidas", Partida.class);
 		for (int i=0;i<partidas.size();i++){
 			String[] nuevafila = {partidas.get(i).getJugador().getId(),String.valueOf(partidas.get(i).getTiempo()),String.valueOf(partidas.get(i).getIntentos().size()),partidas.get(i).getFecha().toString()};
 			this.formulariolista.getTbjugadores().AgregarFila(nuevafila);
